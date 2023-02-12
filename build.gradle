@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'com.bumblebear.plugin-project' version '1.0'
 }
 
 group 'ru.clevertec'
@@ -16,14 +17,6 @@ jar {
     }
     baseName 'utils'
 }
-
-javadoc {
-    apply plugin: 'java'
-    source = sourceSets.main.allJava
-}
-
-build.dependsOn javadoc
-
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
 
@@ -32,6 +25,8 @@ dependencies {
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     implementation 'org.apache.commons:commons-lang3:3.10'
 }
+
+build.dependsOn(greet)
 
 test {
     useJUnitPlatform()
@@ -56,5 +51,7 @@ publishing {
             credentials {
                 username project.repoUser
                 password project.repoPassword
-
-            }}}}
+            }
+        }
+    }
+}

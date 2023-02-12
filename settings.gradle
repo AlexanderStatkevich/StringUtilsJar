@@ -1,1 +1,10 @@
+pluginManagement {
+    repositories {
+        maven {
+            allowInsecureProtocol(true)
+            url 'http://142.93.137.22:8081/repository/bumblebear/'
+        }
+        gradlePluginPortal()
+    }
+}
 rootProject.name = 'ClevertecGradle'
